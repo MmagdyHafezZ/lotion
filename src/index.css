@@ -1,0 +1,269 @@
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+body,
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.app-header {
+  height: 50px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-header h1 {
+  margin: 0;
+  padding: 0;
+}
+.sub-header {
+  height: 50px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app-body {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  border-top: 1px solid #ccc;
+}
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
+}
+button:hover {
+  color: #04c;
+}
+
+.App {
+  display: flex;
+}
+
+/* SIDEBAR STYLES */
+
+.app-sidebar {
+  flex: 1;
+  height: 100%;
+  width: 40vh;
+  border-right: 1px solid #ddd;
+}
+
+.app-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: 1px solid #ddd;
+}
+.app-sidebar-header h1 {
+  margin: 0;
+}
+#sidebar-toggler {
+  font-size: 3rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.app-sidebar-notes {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
+}
+.app-sidebar-note {
+  padding: 25px;
+  cursor: pointer;
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.app-sidebar-note button {
+  color: crimson;
+}
+.app-sidebar-note p {
+  margin: 10px 0;
+}
+.app-sidebar-note small {
+  display: block;
+  color: #999;
+}
+
+.app-sidebar-note:hover {
+  background: #ddd;
+}
+.app-sidebar-note.active,
+.app-sidebar-note.active small {
+  background: #08c;
+  color: white;
+}
+
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+.preview-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 30vh;
+  height: 4rem;
+  outline: none;
+  border: none;
+}
+#title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 30vh;
+  height: 4rem;
+  outline: none;
+  border: none;
+}
+.title-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.note-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.notes-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 30vh;
+  height: 4rem;
+  outline: none;
+  border: none;
+}
+.notes-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.note-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.no-active-note {
+  width: 100%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+}
+#save {
+  color: black;
+  width: 7vh;
+  height: 4rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+#save:hover {
+  background: #04c;
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+#delete {
+  color: black;
+  width: 7vh;
+  height: 4rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+#delete:hover {
+  background: #c00;
+}
+#Edit {
+  color: black;
+  width: 7vh;
+  height: 4rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.top-bar-left {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#Edit:hover {
+  background: #08c;
+}
+
+/* Editing */
+.app-main-note-edit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.edit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app-main-note-edit input {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 4rem;
+  outline: none;
+  border: none;
+}
+.app-preview {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 25px;
+}
+.ck-editor__editable_inline {
+  height: 100vh;
+  overflow-y: scroll;
+}
+#sidebar {
+  display: block;
+}
