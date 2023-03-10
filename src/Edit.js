@@ -22,6 +22,13 @@ function Edit() {
       navigate(`/`, { replace: true });
     }
   };
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
 
   const onEditfield = (field, value) => {
     const updateNote = notes.map((note) => {
@@ -43,6 +50,18 @@ function Edit() {
           ...note,
           [field]: value,
           lastModified: Date.now(),
+        };
+      }
+      return note;
+    });
+    setNotes(updateNote);
+  };
+  const changelastModified = (value) => {
+    const updateNote = notes.map((note) => {
+      if (note.id === id) {
+        return {
+          ...note,
+          lastModified: value,
         };
       }
       return note;
@@ -74,6 +93,14 @@ function Edit() {
             value={note.title}
             onChange={(e) => onEditfield("title", e.target.value)}
             autoFocus
+          />
+          <input
+            type="datetime-local"
+            value={note.lastModified}
+            onChange={(e) => {
+              const date = new Date(e.target.value);
+              changelastModified(date);
+            }}
           />
           <div className="buttons">
             <button
