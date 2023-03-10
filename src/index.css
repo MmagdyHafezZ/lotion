@@ -85,7 +85,8 @@ button:hover {
 
 .app-sidebar-notes {
   height: calc(100vh - 78px);
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow: hidden;
 }
 .app-sidebar-note {
   padding: 25px;
@@ -263,6 +264,7 @@ button:hover {
 .ck-editor__editable_inline {
   height: 100vh;
   overflow-y: scroll;
+  overflow: hidden;
 }
 #sidebar {
   display: block;

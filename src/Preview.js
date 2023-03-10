@@ -74,6 +74,8 @@ function Preview() {
               Last Modified {formatDate(note.lastModified)}
             </small>
           </div>
+          <div className="Date">Date:{note.date}</div>
+          <div className="tag">tag:{note.tag}</div>
           <div className="buttons">
             <button
               id="Edit"

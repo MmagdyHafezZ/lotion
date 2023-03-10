@@ -10,12 +10,19 @@ import { Link } from "react-router-dom";
 
 function Edit() {
   const [notes, setNotes] = useOutletContext();
+  const [other, setOther] = useOutletContext();
   const { id } = useParams();
   const note = notes.find((note) => note.id === id);
   const [text, setText] = useState(note.body);
+  const [place, setPlace] = useState(note.tag);
+  useEffect(() => {
+    if (note.tag === "") {
+      setPlace("Add tags");
+    }
+  }, [note.tag]);
+  const [date, setDate] = useState(note.date);
 
   const navigate = useNavigate();
-  const [date, setDate] = useState(note.lastModified);
   const onDeleteNote = (id) => {
     if (window.confirm("Are you sure you want to delete this note?")) {
       setNotes(notes.filter((note) => note.id !== id));
@@ -56,18 +63,20 @@ function Edit() {
     });
     setNotes(updateNote);
   };
-  const changelastModified = (value) => {
+
+  const changeTags = (value) => {
     const updateNote = notes.map((note) => {
       if (note.id === id) {
         return {
           ...note,
-          lastModified: value,
+          tag: value,
         };
       }
       return note;
     });
     setNotes(updateNote);
   };
+
   const onSaveNote = () => {
     const updateNote = notes.map((note) => {
       if (note.id === id) {
@@ -98,8 +107,15 @@ function Edit() {
             type="datetime-local"
             value={note.lastModified}
             onChange={(e) => {
-              const date = new Date(e.target.value);
-              changelastModified(date);
+              setDate(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder={place}
+            id="tags"
+            onChange={(e) => {
+              changeTags(e.target.value);
             }}
           />
           <div className="buttons">
