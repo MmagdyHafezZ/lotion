@@ -13,9 +13,7 @@ function Template() {
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
-  const onDeleteNote = (id) => {
-    setNotes(notes.filter((note) => note.id !== id));
-  };
+
   const onSearch = (searchText) => {
     let filteredNotes = notes.filter((note) =>
       note.title.toLowerCase().includes(searchText.toLowerCase())
@@ -95,18 +93,6 @@ function Template() {
                 >
                   <div className="sidebar-note-title">
                     <strong>{note.title}</strong>
-                    <button
-                      onClick={() => {
-                        const answer = window.confirm(
-                          "Are you sure you want to delete this note?"
-                        );
-                        if (answer) {
-                          onDeleteNote(note.id);
-                        }
-                      }}
-                    >
-                      Delete
-                    </button>
                   </div>
                   <div
                     dangerouslySetInnerHTML={{
